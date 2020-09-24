@@ -7,7 +7,7 @@ function convert_hex() {
 	for(i=0; i<input.length; i++)
 		if(input.substring(i,i+1) != "0" && input.substring(i,i+1) != "1" && input.substring(i,i+1) != "2" && input.substring(i,i+1) != "3"
 		&& input.substring(i,i+1) != "4" && input.substring(i,i+1) != "5" && input.substring(i,i+1) != "6" && input.substring(i,i+1) != "7"
-		&& input.substring(i,i+1) != "8" && input.substring(i,i+1) != "8" && input.substring(i,i+1) != "A" && input.substring(i,i+1) != "B"
+		&& input.substring(i,i+1) != "8" && input.substring(i,i+1) != "9" && input.substring(i,i+1) != "A" && input.substring(i,i+1) != "B"
 		&& input.substring(i,i+1) != "C" && input.substring(i,i+1) != "D" && input.substring(i,i+1) != "E" && input.substring(i,i+1) != "F"
 		&& input.substring(i,i+1) != "a" && input.substring(i,i+1) != "b" && input.substring(i,i+1) != "c" && input.substring(i,i+1) != "d"
 		&& input.substring(i,i+1) != "e" && input.substring(i,i+1) != "f")
@@ -77,10 +77,12 @@ function convert_hex() {
 				if(fraction.substring(i,i+1) == "1") // gets 1 current bit from the 52 bits
 					fractional += (Math.pow(2, -(i+1))) // if current bit is 1 get 2 ^ -(fractional place)
 					
+			mantissa = -1022
+					
 			if(sign == "1")
-				converted = -((1 + fractional) * (Math.pow(2,mantissa)));
+				converted = -((0 + fractional) * (Math.pow(2,mantissa)));
 			else if(sign == "0")
-				converted = (1 + fractional) * (Math.pow(2,mantissa));
+				converted = (0 + fractional) * (Math.pow(2,mantissa));
 			
 			document.getElementById("special").innerHTML = "Special Case: Denormalized";
 		}
@@ -170,10 +172,12 @@ function convert_bin() {
 				if(fraction.substring(i,i+1) == "1") // gets 1 current bit from the 52 bits
 					fractional += (Math.pow(2, -(i+1))) // if current bit is 1 get 2 ^ -(fractional place)
 					
+			mantissa = -1022
+					
 			if(sign == "1")
-				converted = -((1 + fractional) * (Math.pow(2,mantissa)));
+				converted = -((0 + fractional) * (Math.pow(2,mantissa)));
 			else if(sign == "0")
-				converted = (1 + fractional) * (Math.pow(2,mantissa));
+				converted = (0 + fractional) * (Math.pow(2,mantissa));
 			
 			document.getElementById("special").innerHTML = "Special Case: Denormalized";
 		}
@@ -190,7 +194,7 @@ function convert_bin() {
 			for(i=0; i<52; i++)
 				if(fraction.substring(i,i+1) == "1") // gets 1 current bit from the 52 bits
 					fractional += (Math.pow(2, -(i+1))) // if current bit is 1 get 2 ^ -(fractional place)
-
+			
 			if(sign == "1")
 				converted = -((1 + fractional) * (Math.pow(2,mantissa)));
 			else if(sign == "0")
