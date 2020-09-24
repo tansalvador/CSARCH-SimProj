@@ -1,4 +1,4 @@
-# LBYARCH-SimProj
+# CSARCH-SimProj
 IEEE-754 Single Precision floating point translator
 1. Input: accepts either 16-digit hex input or 64-bit partition binary input or special cases
 2. Output: decimal
